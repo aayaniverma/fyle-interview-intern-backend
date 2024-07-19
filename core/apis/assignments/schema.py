@@ -1,10 +1,9 @@
 from marshmallow import Schema, EXCLUDE, fields, post_load
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
 from marshmallow_enum import EnumField
-from core.models.assignments import Assignment, GradeEnum
+from core.models.assignments import GradeEnum
 from core.libs.helpers import GeneralObject
-
-
+from core.models.assignments import Assignment 
 class AssignmentSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Assignment
@@ -14,8 +13,6 @@ class AssignmentSchema(SQLAlchemyAutoSchema):
     content = auto_field()
     created_at = auto_field(dump_only=True)
     updated_at = auto_field(dump_only=True)
-    teacher_id = auto_field(dump_only=True)
-    student_id = auto_field(dump_only=True)
     grade = auto_field(dump_only=True)
     state = auto_field(dump_only=True)
 

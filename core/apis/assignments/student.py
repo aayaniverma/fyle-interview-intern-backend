@@ -3,9 +3,14 @@ from core import db
 from core.apis import decorators
 from core.apis.responses import APIResponse
 from core.models.assignments import Assignment
-
+from core.apis.assignments.schema import AssignmentSchema, AssignmentSubmitSchema
 from .schema import AssignmentSchema, AssignmentSubmitSchema
+
+def get_student_assignments():
+    from core.models.assignment import Assignment
+    
 student_assignments_resources = Blueprint('student_assignments_resources', __name__)
+
 
 
 @student_assignments_resources.route('/assignments', methods=['GET'], strict_slashes=False)
